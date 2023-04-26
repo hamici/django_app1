@@ -1,4 +1,39 @@
-body {
-     background : yellow
+html,body {
+    width : 100% ;
+    height: 100 % ;
+        }
+header {
+    float : left;
+    width : 100%;
+    height: 15%;
+    background: grey;
+    }
 
-}
+nav {
+    float : left;
+    width : 15% ;
+    height: 65 % ;
+    background: orange ;
+    color : white;
+
+    }
+
+.cotent {
+    float : left;
+    width : 85%;
+    height: 65%;
+    background: blue ;
+    color : white;
+
+    }
+
+footer {
+    float : left;
+    width : 100%;
+    height: 10%;
+    background: grey ;
+
+    }
+thead {
+    color : blue;
+    }

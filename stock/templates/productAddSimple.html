@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        <h1> Nouveau Produit</h1>
+
+
+   <form action="/product/add/simple" method="post">
+        {% csrf_token %}
+            <label for="name">Nom du Produit </label>
+            <input type="text" id="name" name="name">
+
+            <label for="category">Categorie</label>
+            <input type="text" id="category" name="category">
+
+            <label for="price">Prix</label>
+            <input type="text" id="price" name="price">
+
+            <label for="stock_qte">Quantitée</label>
+            <input type="text" id="stock_qte" name="stock_qte">
+
+
+       <input type="submit" value="Ajouter" name="butaj" />
+       <input type="submit" value="Update" name="butupd"/>
+
+    </form>
+   </div>
+{% endblock %}
+
