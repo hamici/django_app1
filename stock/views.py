@@ -46,3 +46,12 @@ def productDelete(request,id):
     product = Product.objects.get(id=id)
     product.delete()
     return redirect('/product/list')
+def productEdit(request,id):
+    product= Product.objects.get(id=id)
+    if request.method == 'POST':
+        productForm = productAddForm(request.POST,instance=product)
+        productForm.save()
+        return redirect('/product/list')
+    else:
+        productForm = productAddForm(instance=product)
+    return render(request,'productEdit.html',{'form':productForm})
