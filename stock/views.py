@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Product
+from .form import productAddForm
 # Create your views here.
 def homePage(request):
     return render(request,'home.html')
@@ -26,7 +27,14 @@ def productAddSimple(request):
     else:
         print('other GET')
     return render(request,'productAddSimple.html')
-
+def productAdd(request):
+    if request.method == 'POST':
+        productForm = productAddForm(request.POST)
+        productForm.save()
+        return redirect('/product/list')
+    else:
+        productForm = productAddForm()
+    return render(request,'productAdd.html',{'form':productForm})
 def productDetail(request,id):
     product = Product.objects.get(id=id)
     context= {
