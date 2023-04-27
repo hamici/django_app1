@@ -26,3 +26,15 @@ def productAddSimple(request):
     else:
         print('other GET')
     return render(request,'productAddSimple.html')
+
+def productDetail(request,id):
+    product = Product.objects.get(id=id)
+    context= {
+        'id' : id,
+        'product' : product
+    }
+    return render(request,'productDetail.html',context)
+def productDelete(request,id):
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('/product/list')

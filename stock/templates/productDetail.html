@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="content">
-        <h1> Liste des Produits</h1>
-        <table border="1">
+        <h2 style="Float:left;width : 20%;background: red ;">Detail du Produit : {{ id }}</h2>
+        <p style="Float:left;width : 20%;background: red ;">{{ product.name }}</p>
+        <p style="width : 20%;background: red ;">{{ product.category }}</p>
+        <p style="width : 20%;background: red ;">{{ product.price }}</p>
+        <p style="width : 20%;background: red ;">{{ product.stock_qte }}</p>
+     <table border="1">
             <thead>
                 <tr>
                     <th> Numero </th>
@@ -10,31 +14,19 @@
                     <th> Categorie </th>
                     <th> Prix </th>
                     <th> Quantitee </th>
-                    <th> Action </th>
                 </tr>
             </thead>
-            {% for product in productData %}
-
             <tr>
                 <td>{{product.id}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.category}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.stock_qte}}</td>
-
-            <td>
-                <a href="/product/{{ product.id }}">Detail</a>
-                <a href="/product/{{ product.id }}/edit">Editer</a>
-                <a href="/product/{{ product.id }}/delete">Supprimer</a>
-            </td>
             </tr>
 
 
 
-            {% endfor %}
-
-
         </table>
-    </div>
+   </div>
 {% endblock %}
 
