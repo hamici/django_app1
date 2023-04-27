@@ -26,6 +26,9 @@
                 <a href="/product/{{ product.id }}">Detail</a>
                 <a href="/product/{{ product.id }}/edit">Editer</a>
                 <a href="/product/{{ product.id }}/delete">Supprimer</a>
+                <a href="/product/{{ product.id }}/delete">Supprimer confirme</a>
+                <button onclick="delProduct({{ product.id }})">Supprimer confirme</button>
+                <button id="btnDel" onclick="delProduct({{ product.id }})">Supprimer optimal</button>
             </td>
             </tr>
 
@@ -35,6 +38,17 @@
 
 
         </table>
+
+    <script>
+    //la selection du button
+        const delProduct = function(id) {
+        if (confirm('est vous sure de vouloir supprimer ?'))
+        {
+         location.href = '/product/'+id+'/delete';
+        }
+
+        }
+    </script>
     </div>
 {% endblock %}
 
